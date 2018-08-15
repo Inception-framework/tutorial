@@ -7,6 +7,7 @@ A very simple tutorial to get started with Inception
 * [Docker](#Docker)
 * [Quick start](#Start)
 * [Step by step](#Step)
+* [Some more interesting samples](#Samples)
 
 ## <a name="Docker"></a>Build and install docker image
 
@@ -329,4 +330,26 @@ Finllay, you can see some stats.
 Inception-analyzer runs only if is configured with the config.json file.
 This file provides a path to the elf binary, the configuration of redirection, and the mapping of all the mapped registers.
 In this example redirection is disabled. We also provide a static interrupt vector mapping, but we do not use it (by default we use the dynamic one in the .interrupt_vector section).
+
+## <a name="Samples"></a>Some more interesting samples
+
+Now that we have an idea about how Inception can be used, we can show some more complex examples taken from [here](https://github.com/Inception-framework/usenix-samples).
+
+### Synthetic tests
+
+We have written a large number of test cases to validate the correct functionality of Inception. Many of them where written and improved over time to catch as many bugs as possible. Some are inspired or taken from real-world cases (e.g., to stress the context switch mechanism used by FreeRTOS). You can find them in ```samples/synthetic_tests```. We will here show a few interesting ones.
+
+The tests ```interactionsand``` and  ```interactions2``` aim at testing support for function calls and returns (type and number of parameters, direct/indirect, C to binary and binary to C, etc.). Have a look at the code in ```samples/synthetic_tests/Examples/interactions/main.c``` and ```samples/synthetic_tests/Examples/interactions2/main.c```
+Then compile and run them with:
+```
+./build.sh interactions lpc18xx
+```
+```
+./build.sh interactions2 lpc18xx
+```
+The build script calls a makefile, sets the configuration script for the board specified as second parameter, and it runs the code in klee.
+You can follow the log of Inception-translator and of the memory allocation in Inception-analyzer to follow the steps. Also have a look at the resulting mixed-IR code in ```Examples/interactions/klee-last/assembly.ll``` and ```Examples/interactions2/klee-last/assembly.ll```
+
+
+
 
