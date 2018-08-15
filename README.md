@@ -361,7 +361,7 @@ Remember to ***comment the ---disable-interrupt option in the Makefile***, then 
 ./build.sh multithread lpc18xx
 ```
 
-### Complex functions
+#### Complex functions
 
 We have tested a complex arithmetic function of MbedTLS:
 
@@ -369,7 +369,7 @@ We have tested a complex arithmetic function of MbedTLS:
 ./build.sh mpi_mul_hlp lpc18xx
 ```
 
-### Some Klee tests
+#### Some Klee tests
 
 Here is an example of error detection both in C and assembly.
 
