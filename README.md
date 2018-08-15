@@ -2,7 +2,11 @@
 
 A very simple tutorial to get started with Inception
 
-## Build and install docker image
+# Index
+
+* [Docker](#Docker)
+
+## <a name="Docker"></a>Build and install docker image
 
 Follow the instrucions [here](https://github.com/Inception-framework/docker).
 
