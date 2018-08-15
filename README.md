@@ -156,11 +156,16 @@ The output of the program is main.elf.ll. This time, it does not contain non-tra
   store i32 %SP6, i32* @SP, !dbg !19
 ```
 
-Therefore, we can now assemble it and run it:
+Therefore, wìe can now assemble it and run it, as shown in the next section.
 
 ```
 llvm-as main.elf.ll -o main_merged.bc
 ```
+
+Another output of the program is the disassembled fucntion fibonacci_asm.dis. The llvm code in main.elf.ll maps the llvm instruction that implement the inline assembly to the lines in this .dis file. A known limitation is the incorrect visualization of functions with multiple returns, that are however supported and working (you can see the corresponding warning in the log).
+
+### Running with Inception-analyzer
+
 ```
 klee main_merged.bc
 ```
