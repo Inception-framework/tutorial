@@ -352,6 +352,34 @@ Then compile and run them with:
 The build script calls a makefile, sets the configuration script for the board specified as second parameter, and it runs the code in klee.
 You can follow the log of Inception-translator and of the memory allocation in Inception-analyzer to follow the steps. Also have a look at the resulting mixed-IR code in ```Examples/interactions/klee-last/assembly.ll``` and ```Examples/interactions2/klee-last/assembly.ll```
 
+#### Multithread
+
+We wrote a few tests for multithreading. Though the code is much simpler than that of an Operating System, it stresses all the main components of Inception-translator and Inception-verifier that handle multithreading. We used them to test our solutions our development. Once stable, Inception was able to run the real multithreading code of FreeRTOS, shown in other samples of this repository.
+
+Remember to ***comment the ---disable-interrupt option in the Makefile***, then type:
+```
+./build.sh multithread lpc18xx
+```
+
+### Complex functions
+
+We have tested a complex arithmetic function of MbedTLS:
+
+```
+./build.sh mpi_mul_hlp lpc18xx
+```
+
+### Some Klee tests
+
+Here is an example of error detection both in C and assembly.
+
+```
+./build.sh 2008-03-04-free-of-global lpc18xx 
+```
+
+```
+./build.sh 2008-03-04-free-of-global-asm lpc18xx 
+```
 
 
 
