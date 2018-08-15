@@ -339,7 +339,9 @@ Now that we have an idea about how Inception can be used, we can show some more 
 
 We have written a large number of test cases to validate the correct functionality of Inception. Many of them where written and improved over time to catch as many bugs as possible. Some are inspired or taken from real-world cases (e.g., to stress the context switch mechanism used by FreeRTOS). You can find them in ```samples/synthetic_tests```. We will here show a few interesting ones.
 
-The tests ```interactionsand``` and  ```interactions2``` aim at testing support for function calls and returns (type and number of parameters, direct/indirect, C to binary and binary to C, etc.). Have a look at the code in ```samples/synthetic_tests/Examples/interactions/main.c``` and ```samples/synthetic_tests/Examples/interactions2/main.c```
+#### Interactions
+
+The tests ```interactions``` and  ```interactions2``` aim at testing support for function calls and returns (type and number of parameters, direct/indirect, C to binary and binary to C, etc.). Have a look at the code in ```samples/synthetic_tests/Examples/interactions/main.c``` and ```samples/synthetic_tests/Examples/interactions2/main.c```
 Then compile and run them with:
 ```
 ./build.sh interactions lpc18xx
