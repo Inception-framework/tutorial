@@ -13,7 +13,7 @@ A very simple tutorial to get started with Inception
 
 Follow the instrucions [here](https://github.com/Inception-framework/docker).
 
-## < a name="Start"></a>Quick start
+## <a name="Start"></a>Quick start
 
 Once inside a shell in docker, we can clone this repo and compile & run a simple example.
 
